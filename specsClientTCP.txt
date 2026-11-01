@@ -1,0 +1,26 @@
+VERSION 1.3
+    Client Start und Login --> Initiale Funktion des Moduls
+        ├── TCP verbindung zum TCP Server starten
+        ├── Login Daten des Nutzers abfragen und an den Server senden
+        ├── Message Handler als Hintergrund Thread für eingehende Nachrichten anderer Clients starten
+        ├── Nutzereingaben über die Konsole abwarten
+        ▼
+    Message Handler --> Hintergrund Thread für das Empfangen von Nachrichten
+        ├── TCP payload aus dem TCP stack abholen
+        ├── TCP payload puffern, parsen und verwalten
+        ├── Wenn MESSAGE_TYPE=='TOKEN', den Token vom Server speichern
+        └── Wenn MESSAGE_TYPE=='MSG', die Nachricht in der konsole ausgeben
+====================================================================================================
+VERSION 2.0 !!!TBD!!!
+    Client Start und Login --> Initiale Funktion des Moduls
+        ├── TCP verbindung zum TCP Server starten
+        ├── Login Daten des Nutzers abfragen und an den Server senden
+        ├── Message Handler als Hintergrund Thread für eingehende Nachrichten anderer Clients starten
+        ├── Nutzereingaben über die Konsole abwarten
+        ▼
+    Message Handler --> Hintergrund Thread für das Empfangen von Nachrichten
+        ├── TCP payload aus dem TCP stack abholen
+        ├── TCP payload puffern, parsen und verwalten
+        ├── Wenn MESSAGE_TYPE=='TOKEN', den Token vom Server speichern
+        └── Wenn MESSAGE_TYPE=='MSG', die Nachricht in der konsole ausgeben
+====================================================================================================

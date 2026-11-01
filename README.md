@@ -1,2 +1,2 @@
-# -TCP-Server-Python-
-TCP-Server @ Python
+# -TCP-Client-Python-
+TCP-Client @ Python

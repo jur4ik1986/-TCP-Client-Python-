@@ -12,9 +12,12 @@ import protoChat as chat
 sessionToken=''
 _HOST = '127.0.0.1'
 _PORT = 65432
+
 _MESSAGE_TYPE_LOGIN='LOGIN'
 _MESSAGE_TYPE_CHAT='MSG'
 _SEPARATOR_MESSAGES = '\n'
+_ERROR_MESSAGE_TYPE='ERROR: Message type not supported'
+
 #-----------------------------------------------------------------#
 #----------Chapter 3: Define the startClient function-------------# 
 #-----------------------------------------------------------------#
@@ -27,7 +30,7 @@ def startClient():
         userPassword = input()
         loginMessage = chat.buildMessage(userName,_MESSAGE_TYPE_LOGIN, userPassword)
         if loginMessage is None:
-            print('Error: Message type not supported')
+            print(_ERROR_MESSAGE_TYPE)
         clientSkt.sendall(loginMessage.encode())
         thread=threading.Thread(target=handleMessages, args=(clientSkt,),daemon=True)
         thread.start()
@@ -36,7 +39,7 @@ def startClient():
             userMessage = input()
             userMessageFramed = chat.buildMessage(userName,_MESSAGE_TYPE_CHAT,userMessage)
             if userMessageFramed is None:
-                print('Error: Message type not supported')
+                print(_ERROR_MESSAGE_TYPE)
             clientSkt.sendall(userMessageFramed.encode())
 #-----------------------------------------------------------------#
 #----------Chapter 4: Define the handleMessages function----------# 
